@@ -47,7 +47,10 @@ public:
 		the directory
 		*/
 	std::string remove_entry(const std::string& name);
-
+	void set_name(const std::string& new_name) {
+		string the_name;
+		the_name = new_name;
+	}
 	/** Writes the contents of the directory to the data file.
 	 */
 	void save();
@@ -71,6 +74,9 @@ private:
 		}
 		void set_number(const std::string& new_number) {
 			the_number = new_number; // method not implemented yet
+		}
+		void set_name(const std::string& new_name) {
+			the_name = new_name;
 		}
 
 	};
