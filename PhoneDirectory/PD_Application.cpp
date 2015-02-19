@@ -90,7 +90,14 @@ void do_remove_entry(Phone_Directory& the_directory) // Exercise 1.8: please com
 	string name;
 	cout << "Enter name: ";
 	getline(cin, name);
-	// Complete the rest of this function 
+	string old_name =
+		the_directory.remove_entry(name);
+	if (old_name != "") {
+		cout << name << " has been deleted in the directory!\n";
+	}
+	else {
+		cout << name << " has been deleted in the directory\n";
+	}
 	
 }
 

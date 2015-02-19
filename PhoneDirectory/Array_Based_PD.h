@@ -48,8 +48,6 @@ public:
 		*/
 	std::string remove_entry(const std::string& name);
 	void set_name(const std::string& new_name) {
-		string the_name;
-		the_name = new_name;
 	}
 	/** Writes the contents of the directory to the data file.
 	 */
