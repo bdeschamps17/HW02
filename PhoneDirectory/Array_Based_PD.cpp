@@ -50,7 +50,7 @@ void Phone_Directory::load_data(const string& source_name)
 	}
 }
 
-/** Add an entry or change an existing entry.
+/** Adds an entry or change an existing entry.
 	@param name The name of the person being added or changed
 	@param number The new number to be assigned
 	@return The old number or, if a new entry, an empty string
@@ -71,7 +71,7 @@ string Phone_Directory::add_or_change_entry(const string& name,
 	return old_number;
 }
 
-/** Look up an entry.
+/** Looks up an entry.
 	@param name The name of the person
 	@return The number. If not in the directory, an empty string
 	*/
@@ -95,13 +95,13 @@ string Phone_Directory::lookup_entry(const string& name) const
 void Phone_Directory::save()
 {
 	if (modified) {  // if not modified, do nothing
-		// Create an output stream.
+		// Creates an output stream.
 		ofstream out(source_name.c_str());
 		for (int i = 0; i < size; i++) {
 			out << the_directory[i].get_name() << "\n";
 			out << the_directory[i].get_number() << "\n";
 		}
-		// Close the output stream.
+		// Closes the output stream.
 		out.close();
 		modified = false;
 	}
@@ -152,21 +152,21 @@ void Phone_Directory::add(const string& name,
 	size++;
 }
 
-/** Create a new array of directory entries with twice the capacity
+/** Creates a new array of directory entries with twice the capacity
 	of the current one.
 	*/
 void Phone_Directory::reallocate()
 {
-	// Double the capacity.
+	// Doubles the capacity.
 	capacity *= 2;
-	// Create a new directory array.
+	// Creates a new directory array.
 	Directory_Entry* new_directory = new Directory_Entry[capacity];
-	// Copy the old to the new
+	// Copies the old to the new
 	for (int i = 0; i < size; i++) {
 		new_directory[i] = the_directory[i];
 	}
-	// Return the memory occupied by the old directory.
+	// Returns the memory occupied by the old directory.
 	delete[] the_directory;
-	// Set the_directory to point to the new directory.
+	// Sets the_directory to point to the new directory.
 	the_directory = new_directory;
 }
